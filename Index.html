@@ -3,10 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SimpleFigma Clone (With Layers)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
   </head>
-  <body>
+  <body
+    class="flex flex-col h-screen bg-gray-50 text-slate-800 font-sans overflow-hidden"
+  >
+    <!-- Header / Toolbar -->
+    <header
+      class="h-12 bg-white border-b border-gray-200 flex items-center px-4 justify-between shadow-sm z-30 relative"
+    >
+      <div class="flex items-center space-x-4">
+        <div
+          class="font-bold text-lg tracking-tight mr-4 flex items-center gap-2"
+        >
+          <div class="w-6 h-6 bg-purple-600 rounded-md"></div>
+          SimpleFigma JS
+        </div>
+
+        <div class="h-6 w-px bg-gray-300 mx-2"></div>
+
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md transition-colors flex items-center gap-2 text-sm font-medium"
+          title="Add Rectangle"
+        >
+          <i data-lucide="square" class="w-4 h-4"></i>
+          <span>Rectangle</span>
+        </button>
+
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md transition-colors flex items-center gap-2 text-sm font-medium"
+          title="Add Text"
+        >
+          <i data-lucide="type" class="w-4 h-4"></i>
+          <span>Text</span>
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md transition-colors text-gray-600"
+          title="Export JSON"
+        >
+          <i data-lucide="file-json" class="w-4 h-4"></i>
+        </button>
+        <button
+          class="p-2 hover:bg-gray-100 rounded-md transition-colors text-gray-600"
+          title="Export HTML"
+        >
+          <i data-lucide="file-code" class="w-4 h-4"></i>
+        </button>
+
+        <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+        <button
+          id="btn-delete"
+          class="p-2 rounded-md transition-colors text-gray-300 cursor-not-allowed"
+          disabled
+          title="Delete Selected"
+        >
+          <i data-lucide="trash-2" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
     <script src="./app.js"></script>
   </body>
 </html>
