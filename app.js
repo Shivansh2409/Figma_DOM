@@ -674,14 +674,22 @@ const app = {
     });
   },
   saveToLocalStorage() {
-    const dataStr = JSON.stringify(this.elements);
-    localStorage.setItem("figma_clone_data", dataStr);
+    try {
+      const dataStr = JSON.stringify(this.elements);
+      localStorage.setItem("figma_clone_data", dataStr);
+      console.log("Data saved to localStorage:", dataStr);
+    } catch (error) {
+      console.error("Failed to save to localStorage:", error);
+    }
   },
 
   loadFromLocalStorage() {
-    const dataStr = localStorage.getItem("figma_clone_data");
-    if (!dataStr) return;
     try {
+      const dataStr = localStorage.getItem("figma_clone_data");
+      if (!dataStr) {
+        console.log("No data found in localStorage");
+        return;
+      }
       const dataArr = JSON.parse(dataStr);
       if (Array.isArray(dataArr)) {
         dataArr.forEach((data) => {
@@ -689,6 +697,9 @@ const app = {
           this.renderElementToDOM(data);
         });
         this.updateLayersPanel();
+        console.log("Data loaded from localStorage:", dataArr);
+      } else {
+        console.warn("Invalid data format in localStorage");
       }
     } catch (err) {
       console.error("Failed to load data from localStorage:", err);
