@@ -152,6 +152,8 @@ const app = {
     } else {
       el.classList.remove("selected");
     }
+
+    this.saveToLocalStorage();
   },
 
   selectElement(id) {
@@ -190,6 +192,7 @@ const app = {
     this.elements = this.elements.filter((e) => e.id !== this.selectedId);
     this.selectElement(null);
     this.updateLayersPanel();
+    this.saveToLocalStorage();
   },
 
   // --- Export Functions ---
@@ -349,6 +352,7 @@ const app = {
     });
 
     lucide.createIcons();
+    this.saveToLocalStorage();
   },
 
   // --- Drag Handlers ---
@@ -480,6 +484,7 @@ const app = {
     }
 
     this.populateSidebar();
+    this.saveToLocalStorage();
   },
 
   setupEventListeners() {
