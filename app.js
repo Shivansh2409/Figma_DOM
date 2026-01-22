@@ -352,7 +352,6 @@ const app = {
     });
 
     lucide.createIcons();
-    this.saveToLocalStorage();
   },
 
   // --- Drag Handlers ---
@@ -484,7 +483,6 @@ const app = {
     }
 
     this.populateSidebar();
-    this.saveToLocalStorage();
   },
 
   setupEventListeners() {
